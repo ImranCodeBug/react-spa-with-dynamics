@@ -1,10 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import {runWithAdal} from 'react-adal';
+import {authContext} from './Services/AdalContext';
 import * as serviceWorker from './serviceWorker';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const DO_NOT_LOGIN = false;
+
+runWithAdal (authContext, ()=> {
+    require('./indexApp.js')
+}, DO_NOT_LOGIN);
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
