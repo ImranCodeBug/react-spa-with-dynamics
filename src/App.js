@@ -8,7 +8,10 @@ function App() {
 
   return (
     <div className="App">
-      <div className="container-fluid">
+      <div className="container-fluid p-3">
+      <div class="alert alert-secondary" role="alert">
+        Accounts
+      </div>
         <AccountList/>
       </div>
       

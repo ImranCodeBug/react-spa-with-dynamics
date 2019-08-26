@@ -7,7 +7,8 @@ class AccountList extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            accounts : []
+            accounts : [],
+            isCompleted : false
         }         
     }
 
@@ -23,18 +24,27 @@ class AccountList extends React.Component{
                 }
 
                 this.setState({
-                    accounts : accs
+                    accounts : accs,
+                    isCompleted : true
                 })
            }
         )
     }
     
     render = () => {
+        if(this.state.isCompleted){        
         return(
-        this.state.accounts.map(account => {
-            return <AccountItem account = {account}/>
-        })
-        )
+            this.state.accounts.map(account => {
+                return <AccountItem account = {account}/>
+            }))
+        }
+
+        else{
+            return(
+            <div class="spinner-border text-primary" role="status">
+              <span class="sr-only">Loading...</span>
+            </div>)
+        }
 
     }
 }

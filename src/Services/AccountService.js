@@ -5,7 +5,7 @@ export const RetrieveAllAccounts = (fnc) =>{
   getToken( async(error, token) => {    
     if(error === null && token !== null){
 
-    let url =  AdalConfig.endpoints.api + "/api/data/v9.0/accounts?$select=name,websiteurl,industrycode,description";
+    let url =  AdalConfig.endpoints.api + "/api/data/v9.0/accounts?$select=name,websiteurl,industrycode,description&$top=50&$filter=description ne null";
     
     fetch(url, { 
         method: 'get', 
