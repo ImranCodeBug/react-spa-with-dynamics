@@ -17,6 +17,7 @@ class AccountList extends React.Component{
                 let accs = [];
                 for(var i = 0; i < result.value.length; i++){
                     let acc = {};
+                    acc.key = result.value[i].accountid;
                     acc.accountName = result.value[i].name;
                     acc.industry = result.value[i].websiteurl;
                     acc.description = result.value[i].description;
@@ -35,14 +36,14 @@ class AccountList extends React.Component{
         if(this.state.isCompleted){        
         return(
             this.state.accounts.map(account => {
-                return <AccountItem account = {account}/>
+                return <AccountItem key = {account.key} account = {account}/>
             }))
         }
 
         else{
             return(
-            <div class="spinner-border text-primary" role="status">
-              <span class="sr-only">Loading...</span>
+            <div className="spinner-border text-primary" role="status">
+              <span className="sr-only">Loading...</span>
             </div>)
         }
 
